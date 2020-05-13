@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useReducer } from 'react';
+import SideBar from './components/SideBar';
+import { initialState, reducer, Context } from './context/store';
+import { withRouter } from 'react-router-dom';
 import './App.css';
 
 function App() {
+  const [store, dispatch] = useReducer(reducer, initialState);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider value={{ store, dispatch }}>
+      <div>
+        <SideBar />
+      </div>
+      <div
+        style={{ background: '#f3f4f7', minHeight: '100vh', minWidth: '100vh' }}
+      >
+        Main
+      </div>
+    </Context.Provider>
   );
 }
 
-export default App;
+export default withRouter(App);
