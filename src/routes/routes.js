@@ -22,7 +22,7 @@ export default function Routes() {
   );
   return (
     <Switch>
-      <PrivateRoute exact path="/home" component={Home} />
+      <PrivateRoute exact path="/" component={Home} />
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/signin" component={Signin} />
       <Route
@@ -30,7 +30,7 @@ export default function Routes() {
         path="/"
         render={() =>
           store.hasAuthenticated === true ? (
-            <Redirect to="/home" />
+            <Redirect to="/" />
           ) : (
             <Redirect to="/signin" />
           )
