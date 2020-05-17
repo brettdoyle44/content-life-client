@@ -16,7 +16,7 @@ import {
 } from '../styles/auth';
 import logo from '../images/CONTENT-LIFE-logo.png';
 
-export default function Signup() {
+export default function Signup(props) {
   const [newUser, setNewUser] = useState(null);
   const [confirm, setConfirm] = useState('');
   const [email, setEmail] = useState('');
@@ -58,9 +58,8 @@ export default function Signup() {
     try {
       await Auth.confirmSignUp(email, confirm);
       await Auth.signIn(email, password);
-
       dispatch({ type: 'USER_HAS_AUTH' });
-      dispatch({ type: 'ACTIVE_NAV', payload: 'home' });
+      props.history.push('/home');
     } catch (e) {
       alert(e.message);
     }
