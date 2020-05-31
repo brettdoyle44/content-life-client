@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function Calendar() {
-  return <div>Calendar App</div>;
+  return <div style={{ gridArea: 'main' }}>Calendar App</div>;
 }

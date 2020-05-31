@@ -1,12 +1,47 @@
 import React, { useReducer, useEffect } from 'react';
 // import SideBar from './components/SideBar';
 // import Signup from './components/Signup';
-// import Signin from './components/Signin';
+import AddIdea from './components/AddIdea';
+import Modal from 'react-modal';
+import Signin from './components/Signin';
 import Routes from './routes/routes';
 import { Auth } from 'aws-amplify';
 import { initialState, reducer, Context } from './context/store';
 import { withRouter } from 'react-router-dom';
-import './App.css';
+import styled from 'styled-components';
+import Sidebar from './components/SideBar';
+import { GlobalStyle } from './styles/core';
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+import 'react-quill/dist/quill.snow.css';
+
+const Layout = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-areas: 'main';
+  height: 100vh;
+  @media (min-width: 46.875em) {
+    grid-template-columns: 240px 1fr;
+    grid-template-areas: 'sidenav main';
+  }
+`;
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    border: 'none',
+  },
+  overlay: {
+    backgroundColor: '#fff',
+    zIndex: '999',
+  },
+};
 
 function App() {
   const [store, dispatch] = useReducer(reducer, initialState);
@@ -27,9 +62,40 @@ function App() {
 
     dispatch({ type: 'USER_IS_AUTH' });
   }
+
+  function renderSignIn() {
+    return <Signin />;
+  }
+
+  function renderDashboard() {
+    return (
+      <Layout>
+        <Sidebar />
+        <Routes />
+      </Layout>
+    );
+  }
+
+  function handleIdeaModalClose() {
+    dispatch({ type: 'SHOW_IDEA_MODAL', payload: false });
+  }
+
   return (
     <Context.Provider value={{ store, dispatch }}>
-      {!store.isAuthenticating && <Routes />}
+      <>
+        {!store.isAuthenticating && (
+          <>{store.hasAuthenticated ? renderDashboard() : renderSignIn()}</>
+        )}
+      </>
+      <Modal
+        isOpen={store.showIdeaModal}
+        onRequestClose={handleIdeaModalClose}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        <AddIdea />
+      </Modal>
+      <GlobalStyle />
     </Context.Provider>
   );
 }

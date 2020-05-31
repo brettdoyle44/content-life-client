@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function Storyboard() {
-  return <div>Storyboard App</div>;
+  return <div style={{ gridArea: 'main' }}>Storyboard App</div>;
 }

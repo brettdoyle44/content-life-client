@@ -68,7 +68,7 @@ export const LinkContainer = styled.ul`
 export const LinkWrapper = styled.li`
   padding: 0.5em 0em 1em 2.5em;
   ${(props) =>
-    props.activestyle &&
+    props.activestyle === 'active' &&
     css`
         border-right: 3px solid #ef1860;
         color: #ef1860;
@@ -86,7 +86,7 @@ export const NavLink = styled(Link)`
   display: block;
   text-decoration: none;
   ${(props) =>
-    props.activestyle &&
+    props.activestyle === 'active' &&
     css`
         color: #ef1860;
         background-color: #f7f7ff;

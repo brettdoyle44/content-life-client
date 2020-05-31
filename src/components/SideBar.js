@@ -15,7 +15,7 @@ import {
 } from '../styles/sidenav';
 import logo from '../images/CONTENT-LIFE-logo.png';
 
-export default function LayoutTest() {
+export default function Sidebar() {
   const { store, dispatch } = useContext(Context);
 
   function handleClick() {
@@ -42,9 +42,12 @@ export default function LayoutTest() {
               onClick={() => {
                 dispatch({ type: 'ACTIVE_NAV', payload: 'analytics' });
               }}
-              activestyle={store.active === 'analytics'}
+              activestyle={store.active === 'analytics' ? 'active' : 'none'}
             >
-              <NavLink to="/" activestyle={store.active === 'analytics'}>
+              <NavLink
+                to="/analytics"
+                activestyle={store.active === 'analytics' ? 'active' : 'none'}
+              >
                 <BarChart2
                   style={{
                     position: 'relative',
@@ -60,9 +63,12 @@ export default function LayoutTest() {
               onClick={() => {
                 dispatch({ type: 'ACTIVE_NAV', payload: 'ideas' });
               }}
-              activestyle={store.active === 'ideas'}
+              activestyle={store.active === 'ideas' ? 'active' : 'none'}
             >
-              <NavLink to="/" activestyle={store.active === 'ideas'}>
+              <NavLink
+                to="/ideas"
+                activestyle={store.active === 'ideas' ? 'active' : 'none'}
+              >
                 <Zap
                   style={{
                     position: 'relative',
@@ -78,9 +84,12 @@ export default function LayoutTest() {
               onClick={() => {
                 dispatch({ type: 'ACTIVE_NAV', payload: 'storyboard' });
               }}
-              activestyle={store.active === 'storyboard'}
+              activestyle={store.active === 'storyboard' ? 'active' : 'none'}
             >
-              <NavLink to="/" activestyle={store.active === 'storyboard'}>
+              <NavLink
+                to="/storyboard"
+                activestyle={store.active === 'storyboard' ? 'active' : 'none'}
+              >
                 <Columns
                   style={{
                     position: 'relative',
@@ -96,9 +105,12 @@ export default function LayoutTest() {
               onClick={() => {
                 dispatch({ type: 'ACTIVE_NAV', payload: 'calendar' });
               }}
-              activestyle={store.active === 'calendar'}
+              activestyle={store.active === 'calendar' ? 'active' : 'none'}
             >
-              <NavLink to="/" activestyle={store.active === 'calendar'}>
+              <NavLink
+                to="/calendar"
+                activestyle={store.active === 'calendar' ? 'active' : 'none'}
+              >
                 <Calendar
                   style={{
                     position: 'relative',

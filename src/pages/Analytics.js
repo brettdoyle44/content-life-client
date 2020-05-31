@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function Analytics() {
-  return <div>Analytics App</div>;
+  return <div style={{ gridArea: 'main' }}>Analytics App</div>;
 }

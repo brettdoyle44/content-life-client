@@ -29,7 +29,7 @@ export default function Signin(props) {
     try {
       await Auth.signIn(email, password);
       dispatch({ type: 'USER_HAS_AUTH' });
-      props.history.push('/home');
+      props.history.push('/');
     } catch (e) {
       alert(e.message);
     }

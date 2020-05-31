@@ -1,10 +1,16 @@
 import React, { useContext } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { Context } from '../context/store';
-import Home from '../pages/Home';
 import App from '../App';
 import Signin from '../components/Signin';
 import Signup from '../components/Signup';
+import Analytics from '../pages/Analytics';
+import Ideas from '../pages/Ideas';
+import Storyboard from '../pages/Storyboard';
+import Calendar from '../pages/Calendar';
+import AddIdea from '../components/AddIdea';
+import Idea from '../components/Idea';
+import EditIdea from '../components/EditIdea';
 
 export default function Routes() {
   const { store } = useContext(Context);
@@ -22,20 +28,26 @@ export default function Routes() {
   );
   return (
     <Switch>
-      <PrivateRoute exact path="/" component={Home} />
-      <Route exact path="/signup" component={Signup} />
-      <Route exact path="/signin" component={Signin} />
+      <PrivateRoute exact path="/analytics" component={Analytics} />
+      <PrivateRoute exact path="/ideas" component={Ideas} />
+      <PrivateRoute exact path="/storyboard" component={Storyboard} />
+      <PrivateRoute exact path="/calendar" component={Calendar} />
+      <PrivateRoute exact path="/addidea" component={AddIdea} />
+      <PrivateRoute exact path="/ideas/:id" component={Idea} />
+      <PrivateRoute exact path="/ideas/:id/edit" component={EditIdea} />
       <Route
         exact
         path="/"
-        render={() =>
-          store.hasAuthenticated === true ? (
-            <Redirect to="/" />
+        render={(props) => {
+          return store.hasAuthenticated ? (
+            <Redirect {...props} to="/analytics" />
           ) : (
-            <Redirect to="/signin" />
-          )
-        }
+            <Redirect {...props} to="/signin" />
+          );
+        }}
       />
+      <Route exact path="/signup" component={Signup} />
+      <Route exact path="/signin" component={Signin} />
       <Route component={App} />
     </Switch>
   );

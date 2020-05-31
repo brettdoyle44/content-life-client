@@ -59,7 +59,7 @@ export default function Signup(props) {
       await Auth.confirmSignUp(email, confirm);
       await Auth.signIn(email, password);
       dispatch({ type: 'USER_HAS_AUTH' });
-      props.history.push('/home');
+      props.history.push('/analytics');
     } catch (e) {
       alert(e.message);
     }
