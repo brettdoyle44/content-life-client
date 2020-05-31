@@ -1,5 +1,4 @@
-import React, { useState, useContext, useRef, useEffect } from 'react';
-import { Context } from '../context/store';
+import React, { useState, useRef, useEffect } from 'react';
 import { API, Storage } from 'aws-amplify';
 import { s3Upload } from '../libs/awsLib';
 import { Link, useParams, useHistory } from 'react-router-dom';
