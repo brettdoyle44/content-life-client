@@ -1,7 +1,7 @@
 import React, { useReducer, useEffect } from 'react';
 // import SideBar from './components/SideBar';
 // import Signup from './components/Signup';
-import AddIdea from './components/AddIdea';
+import AddStory from './components/AddStory';
 import Modal from 'react-modal';
 import Signin from './components/Signin';
 import Routes from './routes/routes';
@@ -38,7 +38,7 @@ const customStyles = {
     border: 'none',
   },
   overlay: {
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(0,0,0,0.5)',
     zIndex: '999',
   },
 };
@@ -76,8 +76,8 @@ function App() {
     );
   }
 
-  function handleIdeaModalClose() {
-    dispatch({ type: 'SHOW_IDEA_MODAL', payload: false });
+  function handleStoryModalClose() {
+    dispatch({ type: 'SHOW_STORY_MODAL', payload: false });
   }
 
   return (
@@ -88,12 +88,12 @@ function App() {
         )}
       </>
       <Modal
-        isOpen={store.showIdeaModal}
-        onRequestClose={handleIdeaModalClose}
+        isOpen={store.showStoryModal}
+        onRequestClose={handleStoryModalClose}
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <AddIdea />
+        <AddStory />
       </Modal>
       <GlobalStyle />
     </Context.Provider>
