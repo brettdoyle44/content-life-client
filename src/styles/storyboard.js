@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import noImage from '../images/No-Image.png';
+import { Trash2 } from 'react-feather';
 
 export const Layout = styled.div`
   grid-area: main;
@@ -21,12 +23,15 @@ export const Title = styled.div`
 
 export const Button = styled.button`
   border: none;
-  background-color: #ef1860;
+  background-color: #ff5959;
   border-radius: 0.5em;
   color: #fff;
   padding: 1em 1.5em;
   width: 15em;
   cursor: pointer;
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 export const CardLayout = styled.div`
@@ -44,39 +49,54 @@ export const Card = styled.div`
   border-radius: 0.5em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: column;
 `;
 
 export const InnerCardLayout = styled.div`
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
+`;
+
+export const ImageOverlay = styled.div`
+  display: none;
+  width: 100%;
+  height: 15em;
+  border-radius: 0.5em 0.5em 0 0;
+  background-color: rgba(79, 157, 168, 0.5);
+`;
+
+export const ExampleImage = styled.div`
+  flex-grow: 1;
+  height: 15em;
+  background: url(${(props) => (props.img ? props.img : noImage)});
+  border-radius: 0.5em 0.5em 0 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover ${ImageOverlay} {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1em;
+  }
 `;
 
 export const TopSection = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1.5em 1.5em 0.65em 1.5em;
-`;
-
-export const Platform = styled.div`
-  font-size: 0.85em;
-  color: #43d39e;
-`;
-
-export const Status = styled.div`
-  color: #fff;
-  background-color: #43d39e;
-  font-size: 0.75em;
-  padding: 0.5em;
-  border-radius: 0.25em;
+  padding-bottom: 1em;
 `;
 
 export const CoreSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 0 1.5em;
+  padding: 1em 1.5em;
 `;
 
 export const CardTitle = styled.div`
@@ -86,8 +106,35 @@ export const CardTitle = styled.div`
   padding-bottom: 1em;
 `;
 
+export const BottomSection = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+`;
+
 export const CardDesc = styled.p`
   text-align: left;
   color: #6c757d;
   line-height: 1.5em;
+`;
+
+export const DeleteButton = styled.button`
+  border: none;
+  background-color: #fff;
+  border-radius: 0.5em;
+  color: #ff5959;
+  padding: 1em;
+  cursor: pointer;
+  &:hover {
+    background-color: #ff5959;
+    color: #fff;
+  }
+`;
+
+export const DeleteIcon = styled(Trash2)`
+  width: 1em;
+  height: auto;
+  color: inherit;
 `;

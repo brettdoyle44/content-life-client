@@ -71,7 +71,7 @@ export const DropLink = styled.li`
   text-decoration: none;
   &:hover {
     cursor: pointer;
-    color: #ef1860;
+    color: #4f9da6;
   }
 `;
 

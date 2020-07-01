@@ -6,6 +6,8 @@ import Modal from 'react-modal';
 import Signin from './components/Signin';
 import Routes from './routes/routes';
 import { Auth } from 'aws-amplify';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd';
 import { initialState, reducer, Context } from './context/store';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
@@ -82,20 +84,22 @@ function App() {
 
   return (
     <Context.Provider value={{ store, dispatch }}>
-      <>
-        {!store.isAuthenticating && (
-          <>{store.hasAuthenticated ? renderDashboard() : renderSignIn()}</>
-        )}
-      </>
-      <Modal
-        isOpen={store.showStoryModal}
-        onRequestClose={handleStoryModalClose}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        <AddStory />
-      </Modal>
-      <GlobalStyle />
+      <DndProvider backend={HTML5Backend}>
+        <>
+          {!store.isAuthenticating && (
+            <>{store.hasAuthenticated ? renderDashboard() : renderSignIn()}</>
+          )}
+        </>
+        <Modal
+          isOpen={store.showStoryModal}
+          onRequestClose={handleStoryModalClose}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <AddStory />
+        </Modal>
+        <GlobalStyle />
+      </DndProvider>
     </Context.Provider>
   );
 }

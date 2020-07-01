@@ -32,7 +32,10 @@ export default function AddStory() {
         details,
       });
       dispatch({ type: 'SHOW_STORY_MODAL', payload: false });
-      history.push(`/storyboard/${theStory.storyId}`);
+      history.push({
+        pathname: `/storyboard/${theStory.storyId}`,
+        state: { title: theStory.header, newStory: true },
+      });
     } catch (e) {
       alert(e.message);
     }

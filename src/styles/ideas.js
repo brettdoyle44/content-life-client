@@ -22,12 +22,15 @@ export const Title = styled.div`
 
 export const Button = styled.button`
   border: none;
-  background-color: #ef1860;
+  background-color: #ff5959;
   border-radius: 0.5em;
   color: #fff;
   padding: 1em 1.5em;
   width: 15em;
   cursor: pointer;
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 export const CardLayout = styled.div`

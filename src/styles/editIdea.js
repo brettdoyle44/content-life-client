@@ -49,17 +49,20 @@ export const UploadButton = styled.button`
   justify-items: center;
   padding: 1em 1.5em;
   font-size: 1.25em;
-  border: 3px solid #ef1860;
-  color: #ef1860;
+  border: 3px solid #4f9da6;
+  color: #4f9da6;
   border-radius: 0.5em;
   cursor: pointer;
   outline: none;
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 export const UploadIcon = styled(Upload)`
   width: 1.15em;
   height: auto;
-  color: #ef1860;
+  color: #4f9da6;
   margin-right: 10px;
 `;
 
@@ -81,11 +84,14 @@ export const FormGroup = styled.div`
 export const Button = styled.button`
   padding: 1em 1.5em;
   border: none;
-  background-color: #ef1860;
+  background-color: #4f9da6;
   width: 100%;
   color: #fff;
   border-radius: 0.5em;
   cursor: pointer;
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 export const TitleInput = styled.input`
@@ -97,6 +103,6 @@ export const TitleInput = styled.input`
   ouline: 0px;
   &:focus {
     outline: none;
-    border-color: #ef1860;
+    border-color: #4f9da6;
   }
 `;

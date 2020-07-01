@@ -13,7 +13,7 @@ import {
   HeaderContainer,
   Header,
 } from '../styles/sidenav';
-import logo from '../images/CONTENT-LIFE-logo.png';
+import logo from '../images/CL-Final-Logo-Long-Color.png';
 
 export default function Sidebar() {
   const { store, dispatch } = useContext(Context);

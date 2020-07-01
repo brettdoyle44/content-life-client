@@ -45,7 +45,7 @@ export const FormGroup = styled.div`
 export const Button = styled.button`
   padding: 1em 1.5em;
   border: none;
-  background-color: #ef1860;
+  background-color: #4f9da6;
   width: 100%;
   color: #fff;
   border-radius: 0.5em;
@@ -61,7 +61,7 @@ export const SignUpInput = styled.input`
   ouline: 0px;
   &:focus {
     outline: none;
-    border-color: #ef1860;
+    border-color: #4f9da6;
   }
   &:nth-child(3n) {
     width: 100%;
@@ -83,7 +83,7 @@ export const SignInInput = styled.input`
   ouline: 0px;
   &:focus {
     outline: none;
-    border-color: #ef1860;
+    border-color: #4f9da6;
   }
 `;
 
@@ -96,6 +96,6 @@ export const ConfirmInput = styled.input`
   width: 100%;
   &:focus {
     outline: none;
-    border-color: #ef1860;
+    border-color: #4f9da6;
   }
 `;

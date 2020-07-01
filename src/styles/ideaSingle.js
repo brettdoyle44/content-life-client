@@ -39,10 +39,13 @@ export const Button = styled.button`
   align-items: center;
   padding: 1em 1.5em;
   border: none;
-  background-color: #ff5f77;
+  background-color: #ff5959;
   color: #fff;
   border-radius: 0.5em;
   cursor: pointer;
+  &:hover {
+    opacity: 0.9;
+  }
 `;
 
 export const TrashIcon = styled(Trash2)`

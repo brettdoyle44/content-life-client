@@ -70,13 +70,13 @@ export const LinkWrapper = styled.li`
   ${(props) =>
     props.activestyle === 'active' &&
     css`
-        border-right: 3px solid #ef1860;
-        color: #ef1860;
+        border-right: 3px solid #4F9DA6;
+        color: #4F9DA6;
         background-color: #f7f7ff;
           }
         `}
   &:hover {
-    color: #ef1860;
+    color: #4f9da6;
     background-color: #f7f7ff;
   }
 `;
@@ -88,17 +88,17 @@ export const NavLink = styled(Link)`
   ${(props) =>
     props.activestyle === 'active' &&
     css`
-        color: #ef1860;
+        color: #4F9DA6;
         background-color: #f7f7ff;
           }
         `}
 `;
 
-// color: ${(props) => (props.activestyle ? '#ef1860' : '#01052d')};
+// color: ${(props) => (props.activestyle ? '#4F9DA6' : '#01052d')};
 //   text-decoration: none;
 //   &:hover {
 //     background: #f7f7ff;
-//     color: ${(props) => (props.activestyle ? '#fff' : '#ef1860')};
+//     color: ${(props) => (props.activestyle ? '#fff' : '#4F9DA6')};
 //   }
 //   &:focus {
 //     color: #fff;
@@ -115,7 +115,7 @@ export const NavLink = styled(Link)`
 //     props.activestyle &&
 //     css`
 //       background: #f7f7ff;
-//       color: #ef1860;
-//       border: 3px solid #ef1860;
+//       color: #4F9DA6;
+//       border: 3px solid #4F9DA6;
 //       }
 //     `}

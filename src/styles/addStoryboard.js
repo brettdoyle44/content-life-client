@@ -36,16 +36,19 @@ export const Input = styled.input`
   ouline: 0px;
   &:focus {
     outline: none;
-    border-color: #ef1860;
+    border-color: #4f9da6;
   }
 `;
 
 export const Button = styled.button`
   padding: 1em 1.5em;
   border: none;
-  background-color: #ef1860;
+  background-color: #4f9da6;
   width: 100%;
   color: #fff;
   border-radius: 0.5em;
   cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  &:hover {
+    opacity: 0.9;
+  }
 `;

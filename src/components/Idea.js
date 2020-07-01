@@ -39,7 +39,7 @@ export default function AddIdea(props) {
     onLoad();
   }, [props.match.params.id, store.hasAuthenticated]);
 
-  function deleteNote() {
+  function deleteIdea() {
     return API.del('core', `/ideas/${props.match.params.id}`);
   }
 
@@ -55,10 +55,10 @@ export default function AddIdea(props) {
     try {
       if (idea.attachments) {
         await Storage.vault.remove(idea.attachments.SS[0]);
-        await deleteNote();
+        await deleteIdea();
         history.push('/ideas');
       } else {
-        await deleteNote();
+        await deleteIdea();
         history.push('/ideas');
       }
     } catch (e) {
@@ -79,7 +79,7 @@ export default function AddIdea(props) {
                 to={`/ideas/${props.match.params.id}/edit`}
               >
                 <Button
-                  style={{ backgroundColor: '#6478f8', marginRight: '1em' }}
+                  style={{ backgroundColor: '#1F4287', marginRight: '1em' }}
                 >
                   <EditIcon /> Edit
                 </Button>
