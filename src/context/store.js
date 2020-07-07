@@ -6,6 +6,7 @@ const initialState = {
   active: 'home',
   activeNav: false,
   showStoryModal: false,
+  showEventModal: false,
 };
 
 const reducer = (state, action) => {
@@ -22,6 +23,8 @@ const reducer = (state, action) => {
       return { ...state, activeNav: action.payload };
     case 'SHOW_STORY_MODAL':
       return { ...state, showStoryModal: action.payload };
+    case 'SHOW_EVENT_MODAL':
+      return { ...state, showEventModal: action.payload };
     default:
       throw new Error();
   }

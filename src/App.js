@@ -1,18 +1,18 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useReducer, useEffect, useRef } from 'react';
 // import SideBar from './components/SideBar';
 // import Signup from './components/Signup';
 import AddStory from './components/AddStory';
+import AddEvent from './components/AddEvent';
 import Modal from 'react-modal';
 import Signin from './components/Signin';
 import Routes from './routes/routes';
 import { Auth } from 'aws-amplify';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import { DndProvider } from 'react-dnd';
 import { initialState, reducer, Context } from './context/store';
 import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import Sidebar from './components/SideBar';
-import { GlobalStyle } from './styles/core';
+import { GlobalStyle, lightTheme } from './styles/core';
+import { ThemeProvider } from 'styled-components';
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-quill/dist/quill.snow.css';
@@ -46,10 +46,15 @@ const customStyles = {
 };
 
 function App() {
+  const isMounted = useRef(true);
   const [store, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    onLoad();
+    if (isMounted.current) {
+      onLoad();
+      Modal.setAppElement('body');
+    }
+    return () => (isMounted.current = true);
   }, []);
 
   async function onLoad() {
@@ -82,9 +87,13 @@ function App() {
     dispatch({ type: 'SHOW_STORY_MODAL', payload: false });
   }
 
+  function handleEventModalClose() {
+    dispatch({ type: 'SHOW_EVENT_MODAL', payload: false });
+  }
+
   return (
     <Context.Provider value={{ store, dispatch }}>
-      <DndProvider backend={HTML5Backend}>
+      <ThemeProvider theme={lightTheme}>
         <>
           {!store.isAuthenticating && (
             <>{store.hasAuthenticated ? renderDashboard() : renderSignIn()}</>
@@ -95,11 +104,21 @@ function App() {
           onRequestClose={handleStoryModalClose}
           style={customStyles}
           contentLabel="Example Modal"
+          appElement={document.getElementById('app')}
         >
           <AddStory />
         </Modal>
+        <Modal
+          isOpen={store.showEventModal}
+          onRequestClose={handleEventModalClose}
+          style={customStyles}
+          contentLabel="Example Modal"
+          appElement={document.getElementById('app')}
+        >
+          <AddEvent />
+        </Modal>
         <GlobalStyle />
-      </DndProvider>
+      </ThemeProvider>
     </Context.Provider>
   );
 }

@@ -36,7 +36,7 @@ export default function AddIdea(props) {
   const [currentShortname, setCurrentShortname] = useState('');
   const [focused, setFocused] = useState(false);
   const [collaborators, setCollaborators] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [doneLoading, setDoneLoading] = useState(false);
   //   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -59,7 +59,7 @@ export default function AddIdea(props) {
         setDetails(idea.details);
         setTargetDate(moment(idea.targetDate));
         setCollaborators(['']);
-        setIsLoading(true);
+        setDoneLoading(true);
       } catch (e) {
         console.error(e);
       }
@@ -124,7 +124,7 @@ export default function AddIdea(props) {
 
   return (
     <>
-      {isLoading ? (
+      {doneLoading ? (
         <Layout>
           <Header>
             <Title>Edit your idea</Title>

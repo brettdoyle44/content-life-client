@@ -8,7 +8,7 @@ export const FormLayout = styled.div`
   padding: 2em;
   width: 20em;
   @media (min-width: 50em) {
-    width: 35em;
+    width: 40em;
   }
 `;
 

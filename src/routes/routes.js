@@ -11,6 +11,7 @@ import Calendar from '../pages/Calendar';
 import AddIdea from '../components/AddIdea';
 import Idea from '../components/Idea';
 import EditIdea from '../components/EditIdea';
+import EditEvent from '../components/EditEvent';
 import Storyboard from '../components/Storyboard';
 
 export default function Routes() {
@@ -37,6 +38,7 @@ export default function Routes() {
       <PrivateRoute exact path="/ideas/:id" component={Idea} />
       <PrivateRoute exact path="/ideas/:id/edit" component={EditIdea} />
       <PrivateRoute exact path="/storyboard/:id" component={Storyboard} />
+      <PrivateRoute exact path="/events/:id" component={EditEvent} />
       <Route
         exact
         path="/"

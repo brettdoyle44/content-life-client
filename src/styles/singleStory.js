@@ -75,7 +75,7 @@ export const AddIcon = styled(PlusCircle)`
 `;
 
 export const Card = styled.div`
-  background-color: #fff;
+  background-color: ${(props) => props.theme.white};
   border-radius: 0.5em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   display: flex;
@@ -186,6 +186,7 @@ export const Input = styled(TextareaAutosize)`
   border: none;
   width: 100%;
   font-size: 0.9em;
+  background-color: ${(props) => props.theme.white} !important;
   box-sizing: border-box;
   &::placeholder {
     color: #e7e7e7;

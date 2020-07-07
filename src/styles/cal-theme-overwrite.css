@@ -1,0 +1,22 @@
+.fc-theme-standard {
+  margin: 1em 2.5em;
+}
+
+.fc-theme-standard,
+.fc-daygrid-day-number,
+.fc-col-header-cell-cushion {
+  color: #6c757d;
+}
+
+.fc-scrollgrid-liquid th {
+  padding: 0.5em 0;
+  font-weight: 900;
+}
+
+.fc .fc-scrollgrid,
+.fc-scrollgrid-liquid th,
+.fc-scrollgrid-liquid tr,
+.fc-scrollgrid-liquid td,
+.fc-daygrid {
+  border-color: #f6f6f7;
+}
